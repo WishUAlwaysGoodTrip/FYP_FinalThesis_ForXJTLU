@@ -1,0 +1,103 @@
+% 前所未有简单地，开始你的 LaTeX 之旅
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% [页面选项]
+%
+% 字号选项:    11pt是字号，比较适合电子印刷品和纸质印刷品
+% 字体选项:    不填写 - 默认为 Modern (别忘了连逗号一起删了)
+%			  times - Times New Roman
+%			  sans - Sans Serif 字体（黑体）
+% oneside:    代表单面，一般单侧用于电子印刷品
+% 		      可以改成 twoside，一般用于双面纸质印刷
+% openright:  双面打印的情况下，纸质印刷品要求新的一章从奇数页开始
+% hardcopy:   打印机打印选项，带有此选项将去除logo颜色以及代码颜色，更适合黑白印刷
+%			  使用彩色或者电子版请去除此选项
+%			  也可以改为 editing ，颜色讲和 sublime3 的 Mariana 颜色主题一致，减小写作时的文本对比度
+%		          让你以最舒适的方式书写
+% heading:    页面带有页眉
+\documentclass[12pt,times,oneside,openright,hardcopy]{eeereport}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% [封面选项]
+%
+% title:    文章主标题，不可以省略
+% subtitle: 副标题，可以省略，但不可以删除
+% covercontent: 封面信息，可以在其内部添加或者删除 \converline 来添加或者删除一行
+%    coverline{项目}{项目内容}，可以自由添加各种内容
+%
+\title{report title}
+\subtitle{Final Thesis}
+
+%%这里封面信息里在xjtlu_cover.tex的表格中进行更改。
+%\covercontent{
+%	
+%	\coverline{Student Name}{Yifan Geng}
+%	\coverline{Student ID}{1929573}
+%	\coverline{Supervisor}{Steven Guan}
+%	\coverline{Accessor}{Steven Guan}
+
+%
+%}
+
+\begin{document}
+% set line spacing to 1.5B
+\baselineskip = 17pt
+\pagenumbering{Alph}
+\begin{titlepage}
+
+\input{xjtlu_cover}
+\newpage
+\thispagestyle{empty}
+\end{titlepage}
+
+\frontmatter
+
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 摘要部分 Abstract/Ackowledge/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\pagenumbering{roman}
+\input{src/abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\input{src/acknowledge}
+\addcontentsline{toc}{chapter}{Acknowledge}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%目录
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\addcontentsline{toc}{chapter}{Contents}
+\addcontentsline{toc}{chapter}{List of Figures}
+\addcontentsline{toc}{chapter}{List of Tables}
+\addcontentsline{toc}{chapter}{List of Acronyms}
+
+\listoffigures   % 生成图目录
+\listoftables    % 生成表目录
+\input{src/List of Acronyms.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 正文部分 Main Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\pagenumbering{arabic}
+
+
+\input{src/introduction}
+\input{src/literature}
+\input{src/methodology}
+\input{src/experiment}
+\input{src/conclusion}
+
+
+% 参考文献列表，请打开 reference.bib 文件添加 bibtex 格式的参考文献
+\bibliographystyle{IEEEtran}
+\bibliography{reference} %
+\addcontentsline{toc}{chapter}{References}
+
+\input{src/Appendix.tex}
+\addcontentsline{toc}{chapter}{Appendix}
+\end{document}
+
