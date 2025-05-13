@@ -79,7 +79,7 @@
 
 \renewcommand{\figurename}{Fig.}
 
-\renewcommand{\bibname}{Reference}
+\renewcommand{\bibname}{References}
 
 \renewcommand{\arraystretch}{1.8}
 
