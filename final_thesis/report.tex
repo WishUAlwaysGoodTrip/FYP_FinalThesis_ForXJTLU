@@ -15,7 +15,7 @@
 %			  也可以改为 editing ，颜色讲和 sublime3 的 Mariana 颜色主题一致，减小写作时的文本对比度
 %		          让你以最舒适的方式书写
 % heading:    页面带有页眉
-\documentclass[12pt,times,oneside,openright,hardcopy]{eeereport}
+\documentclass[12pt,times,oneside,openright]{eeereport}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -26,19 +26,25 @@
 % covercontent: 封面信息，可以在其内部添加或者删除 \converline 来添加或者删除一行
 %    coverline{项目}{项目内容}，可以自由添加各种内容
 %
-\title{report title}
+\title{\textit{Title of Your Project}}
 \subtitle{Final Thesis}
 
 %%这里封面信息里在xjtlu_cover.tex的表格中进行更改。
 %\covercontent{
 %	
-%	\coverline{Student Name}{Yifan Geng}
-%	\coverline{Student ID}{1929573}
-%	\coverline{Supervisor}{Steven Guan}
-%	\coverline{Accessor}{Steven Guan}
-
+% Student Name: &  John Doe  \\ \hline
+% Student ID:   &  1234567     \\ \hline
+% Supervisor:   &  Jane Doe \\ \hline
+% Assessor:     &  Jane Doe \\ \hline
 %
 %}
+
+% To avoid hyphenating words at non-vowel positions
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
 
 \begin{document}
 % set line spacing to 1.5B
@@ -60,23 +66,39 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \mainmatter
 \pagenumbering{roman}
-\input{src/abstract}
+\input{src/abstract.tex}
 \addcontentsline{toc}{chapter}{Abstract}
-\input{src/acknowledge}
-\addcontentsline{toc}{chapter}{Acknowledge}
+\input{src/acknowledgements.tex}
+\addcontentsline{toc}{chapter}{Acknowledgements}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %目录
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tableofcontents
+% -------- Contents ----------
+{
+ \hypersetup{linkcolor = black}
+\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{Contents}
+\tableofcontents
+% ----------------  List of Figures  ----------------
+\cleardoublepage       % 换页（可选，保持排版整洁）
+\phantomsection        % 建立新的跳转锚点
+\listoffigures         % 真正插入列表
 \addcontentsline{toc}{chapter}{List of Figures}
-\addcontentsline{toc}{chapter}{List of Tables}
-\addcontentsline{toc}{chapter}{List of Acronyms}
 
-\listoffigures   % 生成图目录
-\listoftables    % 生成表目录
+% ----------------  List of Tables  -----------------
+\cleardoublepage
+\phantomsection
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% ----------------  List of Acronyms ----------------
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Acronyms}
 \input{src/List of Acronyms.tex}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 正文部分 Main Content
@@ -85,11 +107,11 @@
 \pagenumbering{arabic}
 
 
-\input{src/introduction}
-\input{src/literature}
-\input{src/methodology}
-\input{src/experiment}
-\input{src/conclusion}
+\input{src/introduction.tex}
+\input{src/literature.tex}
+\input{src/methodology.tex}
+\input{src/experiment.tex}
+\input{src/conclusion.tex}
 
 
 % 参考文献列表，请打开 reference.bib 文件添加 bibtex 格式的参考文献
@@ -97,7 +119,9 @@
 \bibliography{reference} %
 \addcontentsline{toc}{chapter}{References}
 
+\appendix
+
 \input{src/Appendix.tex}
-\addcontentsline{toc}{chapter}{Appendix}
+
 \end{document}
 

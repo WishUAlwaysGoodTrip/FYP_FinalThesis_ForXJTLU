@@ -1,4 +1,4 @@
-# FYP_FinalThesis_ForXJTLU
+# FYP_FinalThesis_ForXJTLUSAT301
 在Feimax给的模板上变更了一些设计，使latex模板更贴近SAT301的word template.
 
 Feimax原latex模板：https://github.com/feimax/latex_template_for_xjtlu_eee

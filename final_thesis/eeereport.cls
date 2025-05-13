@@ -46,7 +46,15 @@
 \RequirePackage{multirow}
 \RequirePackage{array}
 \RequirePackage{tabularx}
-\usepackage{acronym}
+\RequirePackage{acronym}
+\RequirePackage{booktabs}
+\RequirePackage[
+    colorlinks=true% Colored text instead of boxes around links 文字着色而非画框
+    linkcolor=red,% Color for internal links like sections 交叉引用（如章节）颜色
+    citecolor=green,% Color for citation links 文献引用颜色
+    urlcolor=blue   % Color for URL links URL颜色
+]{hyperref}             
+
 %\usepackage{tocloft}
 
 %\renewcommand{\cftchapfont}{\fontsize{20}{24}\selectfont}
@@ -71,7 +79,7 @@
 
 \renewcommand{\figurename}{Fig.}
 
-\renewcommand{\bibname}{Reference}
+\renewcommand{\bibname}{References}
 
 \renewcommand{\arraystretch}{1.8}
 
