@@ -21,6 +21,21 @@ Feimax原latex模板：https://github.com/feimax/latex_template_for_xjtlu_eee
 4. 分档分类
    - 将正文部分拆分为每一个章节为独立的 `.tex` 文件，提高了编写效率。
 
-<img width="589" alt="Screen Shot 2023-05-03 at 13 03 43" src="https://user-images.githubusercontent.com/86406000/235836066-1002d529-5b30-4988-b9b3-665b9928731f.png">
+# Main Changes
 
+1. Cover format
+- Adjust the size of the main and subtitles
+- Add subtitles
+- Adjust the format of the table of submitted student information and supervisors
+
+2. Added chapters
+- List of Figures
+- List of Tables
+- List of Acronyms
+- And wrote the table of contents
+
+3. Added Appendix chapter
+
+4. Classification
+- Split the main text into each chapter as an independent `.tex` file to improve writing efficiency.
 
